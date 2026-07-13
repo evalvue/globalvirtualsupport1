@@ -141,7 +141,12 @@ function Portfolio() {
       {/* Nav */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
         <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 font-semibold tracking-tight text-lg">
+          <a
+            href="https://www.globalvirtualsupport.com"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 font-semibold tracking-tight text-lg"
+          >
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Globe className="w-4 h-4" />
             </span>
@@ -152,11 +157,26 @@ function Portfolio() {
             <a href="#work" className="hover:text-foreground transition">Work</a>
             <a href="#process" className="hover:text-foreground transition">Process</a>
             <a href="#about" className="hover:text-foreground transition">About</a>
+            <a
+              href="https://www.globalvirtualsupport.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-foreground transition inline-flex items-center gap-1"
+            >
+              Main Site <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </div>
-          <Button asChild size="sm">
-            <a href="#contact">Hire Us</a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button asChild size="sm" variant="outline" className="hidden sm:inline-flex">
+              <a href="https://www.globalvirtualsupport.com" target="_blank" rel="noreferrer">
+                Visit Main Site <ArrowUpRight className="ml-1 w-3.5 h-3.5" />
+              </a>
+            </Button>
+            <Button asChild size="sm">
+              <a href="#contact">Hire Us</a>
+            </Button>
+          </div>
         </nav>
       </header>
 
@@ -376,7 +396,7 @@ function Portfolio() {
               <a href="mailto:hello@globalvirtualsupport.com"><Mail className="mr-2 w-4 h-4" /> Email us</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="https://globalvirtualsupport.com" target="_blank" rel="noreferrer">Visit main site</a>
+              <a href="https://www.globalvirtualsupport.com" target="_blank" rel="noreferrer">Visit main site</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="https://fiverr.com" target="_blank" rel="noreferrer">Fiverr</a>
