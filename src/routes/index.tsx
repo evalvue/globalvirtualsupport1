@@ -169,7 +169,9 @@ function Portfolio() {
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#services" className="hover:text-foreground transition">Services</a>
             <a href="#work" className="hover:text-foreground transition">Work</a>
-            <a href="#process" className="hover:text-foreground transition">Process</a>
+            <a href="#products" className="hover:text-foreground transition">Products</a>
+            <a href="#apps" className="hover:text-foreground transition">Apps</a>
+            <a href="#qa" className="hover:text-foreground transition">Testing</a>
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a
               href="https://www.globalvirtualsupport.com"
@@ -179,7 +181,7 @@ function Portfolio() {
             >
               Main Site <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
-            <a href="#contact" className="hover:text-foreground transition">Contact</a>
+            <Link to="/contact" className="hover:text-foreground transition">Contact</Link>
           </div>
           <div className="flex items-center gap-2">
             <Button asChild size="sm" variant="outline" className="hidden sm:inline-flex">
@@ -188,7 +190,7 @@ function Portfolio() {
               </a>
             </Button>
             <Button asChild size="sm">
-              <a href="#contact">Hire Us</a>
+              <Link to="/contact">Hire Us</Link>
             </Button>
           </div>
         </nav>
