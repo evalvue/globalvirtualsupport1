@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-global.jpg";
 import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
@@ -26,6 +26,20 @@ import {
   Shield,
   Clock,
   Sparkles,
+  Database,
+  Bug,
+  ShieldCheck,
+  Gauge,
+  Bell,
+  CreditCard,
+  MapPin,
+  ShoppingBag,
+  BarChart3,
+  Cpu,
+  TestTube2,
+  Accessibility,
+  Lock,
+  MessageCircle,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -135,6 +149,100 @@ const stack = [
   "Python", "PostgreSQL", "Supabase", "AWS", "Cloudflare", "Tailwind", "Stripe",
 ];
 
+const softwareProducts = [
+  {
+    icon: BarChart3,
+    title: "ERP & Accounting Suites",
+    desc: "Multi-company accounting, GST/VAT billing, P&L, balance sheet and inventory dashboards.",
+    features: ["GST / VAT ready", "Multi-currency", "Role-based access", "Audit logs"],
+    example: "Reference build: ManageXOne — HRIS + Accounting + CRM",
+  },
+  {
+    icon: Database,
+    title: "CRM & Sales Platforms",
+    desc: "Lead pipelines, quote-to-cash, automated follow-ups and WhatsApp / email integrations.",
+    features: ["Pipeline stages", "Quote & invoice", "Email + WhatsApp", "Analytics"],
+    example: "Delivered for BPO, logistics and real-estate clients",
+  },
+  {
+    icon: Cpu,
+    title: "Internal Tools & Automations",
+    desc: "Admin panels, back-office dashboards, and REST/GraphQL APIs that replace spreadsheets.",
+    features: ["Custom dashboards", "Cron jobs", "3rd-party APIs", "SSO & 2FA"],
+    example: "Ops teams cut manual work by up to 70%",
+  },
+];
+
+const mobileApps = [
+  {
+    icon: ShoppingBag,
+    title: "E-commerce & D2C App",
+    desc: "Native-feeling storefront with cart, checkout, order tracking and push notifications.",
+    stack: ["React Native", "Stripe", "Firebase"],
+    stats: ["4.8★ store rating", "Sub-2s cold start", "iOS + Android"],
+  },
+  {
+    icon: MapPin,
+    title: "Logistics & Dispatch App",
+    desc: "Driver app with live GPS, route optimisation, proof-of-delivery and offline sync.",
+    stack: ["React Native", "Mapbox", "PostgreSQL"],
+    stats: ["Real-time tracking", "Offline first", "Role-based flows"],
+  },
+  {
+    icon: CreditCard,
+    title: "FinTech / Loans App",
+    desc: "KYC, loan application journey, EMI calculator and secure document upload.",
+    stack: ["React Native", "Node.js", "AWS S3"],
+    stats: ["Aadhaar / PAN KYC", "Bank-grade auth", "Encrypted storage"],
+  },
+  {
+    icon: Bell,
+    title: "Fitness & Wellness App",
+    desc: "Workout library, AI coach, progress tracking and reminders — inspired by our Fit N Freakk build.",
+    stack: ["React Native", "OpenAI", "Supabase"],
+    stats: ["AI-generated plans", "Video demos", "Streaks & badges"],
+  },
+];
+
+const qaServices = [
+  {
+    icon: Bug,
+    title: "Manual & Exploratory QA",
+    desc: "Structured test cases, exploratory sessions, cross-device compatibility and detailed bug reports with reproducible steps.",
+    tools: ["TestRail", "Jira", "BrowserStack", "Notion"],
+  },
+  {
+    icon: TestTube2,
+    title: "Automated Testing",
+    desc: "End-to-end, integration and unit test suites wired into your CI so regressions are caught before release.",
+    tools: ["Playwright", "Cypress", "Vitest", "Jest", "GitHub Actions"],
+  },
+  {
+    icon: Gauge,
+    title: "Performance & Load",
+    desc: "Web Vitals audits, API stress testing and database profiling to keep pages fast under real traffic.",
+    tools: ["Lighthouse", "k6", "New Relic", "Sentry"],
+  },
+  {
+    icon: Lock,
+    title: "Security Testing",
+    desc: "OWASP Top-10 review, dependency scanning, auth & role checks and secrets hygiene before launch.",
+    tools: ["OWASP ZAP", "Snyk", "npm audit", "Semgrep"],
+  },
+  {
+    icon: Accessibility,
+    title: "Accessibility (WCAG)",
+    desc: "WCAG 2.2 AA audits, keyboard-navigation and screen-reader passes with prioritised fixes.",
+    tools: ["axe DevTools", "NVDA", "VoiceOver"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Release & Regression",
+    desc: "Pre-release smoke suites, staged rollouts and post-release monitoring so shipping stays boring.",
+    tools: ["GitHub Actions", "Sentry", "PostHog"],
+  },
+];
+
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -155,7 +263,9 @@ function Portfolio() {
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#services" className="hover:text-foreground transition">Services</a>
             <a href="#work" className="hover:text-foreground transition">Work</a>
-            <a href="#process" className="hover:text-foreground transition">Process</a>
+            <a href="#products" className="hover:text-foreground transition">Products</a>
+            <a href="#apps" className="hover:text-foreground transition">Apps</a>
+            <a href="#qa" className="hover:text-foreground transition">Testing</a>
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a
               href="https://www.globalvirtualsupport.com"
@@ -165,7 +275,7 @@ function Portfolio() {
             >
               Main Site <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
-            <a href="#contact" className="hover:text-foreground transition">Contact</a>
+            <Link to="/contact" className="hover:text-foreground transition">Contact</Link>
           </div>
           <div className="flex items-center gap-2">
             <Button asChild size="sm" variant="outline" className="hidden sm:inline-flex">
@@ -174,7 +284,7 @@ function Portfolio() {
               </a>
             </Button>
             <Button asChild size="sm">
-              <a href="#contact">Hire Us</a>
+              <Link to="/contact">Hire Us</Link>
             </Button>
           </div>
         </nav>
@@ -197,7 +307,7 @@ function Portfolio() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <a href="#contact">Start a project <ArrowRight className="ml-2 w-4 h-4" /></a>
+                <Link to="/contact">Start a project <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="#work">View live work</a>
@@ -317,7 +427,119 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* Software Products */}
+      <section id="products" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Software Products</p>
+          <h2 className="text-4xl font-semibold tracking-tight">Business platforms we design and ship.</h2>
+          <p className="mt-4 text-muted-foreground">
+            Production-grade software built for real operations — invoicing, inventory, sales, and internal tooling.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {softwareProducts.map((p) => (
+            <Card key={p.title} className="p-6 border-border/60 flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <p.icon className="w-5 h-5" />
+              </div>
+              <h3 className="mt-4 text-xl font-semibold">{p.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+              <ul className="mt-4 space-y-1.5">
+                {p.features.map((f) => (
+                  <li key={f} className="text-sm flex items-center gap-2 text-foreground/80">
+                    <CheckCircle2 className="w-4 h-4 text-primary" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 pt-4 border-t border-border/60 text-xs text-muted-foreground italic">
+                {p.example}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Mobile Apps */}
+      <section id="apps" className="bg-secondary/40 py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mb-14">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Mobile Apps</p>
+            <h2 className="text-4xl font-semibold tracking-tight">iOS & Android apps that ship to the store.</h2>
+            <p className="mt-4 text-muted-foreground">
+              Cross-platform builds with React Native and native modules where it matters — payments, maps, camera and background sync.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {mobileApps.map((a) => (
+              <Card key={a.title} className="overflow-hidden border-border/60 flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative aspect-[9/16] bg-gradient-to-br from-primary/15 via-background to-accent/20 p-4">
+                  <div className="absolute inset-x-6 inset-y-4 rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center" style={{ boxShadow: "var(--shadow-card)" }}>
+                    <div className="w-16 h-1.5 rounded-full bg-muted-foreground/30 mb-4" />
+                    <a.icon className="w-8 h-8 text-primary" />
+                    <div className="mt-3 text-sm font-semibold">{a.title.split(" ")[0]}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">v2.4</div>
+                    <div className="mt-4 w-full space-y-1.5">
+                      {a.stats.map((s) => (
+                        <div key={s} className="text-[11px] rounded-md bg-secondary/60 px-2 py-1">{s}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-semibold">{a.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground flex-1">{a.desc}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {a.stack.map((s) => (
+                      <Badge key={s} variant="outline" className="font-normal text-[10px]">{s}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* QA & Testing */}
+      <section id="qa" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">QA & Testing</p>
+          <h2 className="text-4xl font-semibold tracking-tight">Ship with confidence, not with luck.</h2>
+          <p className="mt-4 text-muted-foreground">
+            A dedicated QA practice covering manual, automated, performance, security and accessibility testing — plugged into your release pipeline.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {qaServices.map((q) => (
+            <Card key={q.title} className="p-6 border-border/60" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <q.icon className="w-5 h-5" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold">{q.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{q.desc}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {q.tools.map((t) => (
+                  <Badge key={t} variant="secondary" className="font-normal text-xs">{t}</Badge>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-10 grid sm:grid-cols-4 gap-4 text-center">
+          {[
+            { k: "10k+", v: "Test cases executed" },
+            { k: "500+", v: "Automated E2E tests" },
+            { k: "99.9%", v: "Release success rate" },
+            { k: "< 24h", v: "Bug-fix turnaround" },
+          ].map((s) => (
+            <Card key={s.v} className="p-5 border-border/60" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="text-2xl font-semibold text-primary">{s.k}</div>
+              <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       <section id="process" className="max-w-6xl mx-auto px-6 py-24">
         <div className="max-w-2xl mb-14">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Process</p>
@@ -393,16 +615,15 @@ function Portfolio() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>
-              <a href="mailto:hello@globalvirtualsupport.com"><Mail className="mr-2 w-4 h-4" /> Email us</a>
+              <Link to="/contact"><Mail className="mr-2 w-4 h-4" /> Open contact form</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="https://wa.me/917000738158" target="_blank" rel="noreferrer">
+                <MessageCircle className="mr-2 w-4 h-4" /> WhatsApp
+              </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="https://www.globalvirtualsupport.com" target="_blank" rel="noreferrer">Visit main site</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="https://fiverr.com" target="_blank" rel="noreferrer">Fiverr</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="https://upwork.com" target="_blank" rel="noreferrer">Upwork</a>
             </Button>
           </div>
         </div>
