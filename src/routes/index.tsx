@@ -615,16 +615,15 @@ function Portfolio() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>
-              <a href="mailto:hello@globalvirtualsupport.com"><Mail className="mr-2 w-4 h-4" /> Email us</a>
+              <Link to="/contact"><Mail className="mr-2 w-4 h-4" /> Open contact form</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="https://wa.me/917000738158" target="_blank" rel="noreferrer">
+                <MessageCircle className="mr-2 w-4 h-4" /> WhatsApp
+              </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="https://www.globalvirtualsupport.com" target="_blank" rel="noreferrer">Visit main site</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="https://fiverr.com" target="_blank" rel="noreferrer">Fiverr</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="https://upwork.com" target="_blank" rel="noreferrer">Upwork</a>
             </Button>
           </div>
         </div>
