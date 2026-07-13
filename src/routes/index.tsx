@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-global.jpg";
 import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
@@ -26,6 +26,20 @@ import {
   Shield,
   Clock,
   Sparkles,
+  Database,
+  Bug,
+  ShieldCheck,
+  Gauge,
+  Bell,
+  CreditCard,
+  MapPin,
+  ShoppingBag,
+  BarChart3,
+  Cpu,
+  TestTube2,
+  Accessibility,
+  Lock,
+  MessageCircle,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
