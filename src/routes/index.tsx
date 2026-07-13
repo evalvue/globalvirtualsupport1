@@ -149,6 +149,100 @@ const stack = [
   "Python", "PostgreSQL", "Supabase", "AWS", "Cloudflare", "Tailwind", "Stripe",
 ];
 
+const softwareProducts = [
+  {
+    icon: BarChart3,
+    title: "ERP & Accounting Suites",
+    desc: "Multi-company accounting, GST/VAT billing, P&L, balance sheet and inventory dashboards.",
+    features: ["GST / VAT ready", "Multi-currency", "Role-based access", "Audit logs"],
+    example: "Reference build: ManageXOne — HRIS + Accounting + CRM",
+  },
+  {
+    icon: Database,
+    title: "CRM & Sales Platforms",
+    desc: "Lead pipelines, quote-to-cash, automated follow-ups and WhatsApp / email integrations.",
+    features: ["Pipeline stages", "Quote & invoice", "Email + WhatsApp", "Analytics"],
+    example: "Delivered for BPO, logistics and real-estate clients",
+  },
+  {
+    icon: Cpu,
+    title: "Internal Tools & Automations",
+    desc: "Admin panels, back-office dashboards, and REST/GraphQL APIs that replace spreadsheets.",
+    features: ["Custom dashboards", "Cron jobs", "3rd-party APIs", "SSO & 2FA"],
+    example: "Ops teams cut manual work by up to 70%",
+  },
+];
+
+const mobileApps = [
+  {
+    icon: ShoppingBag,
+    title: "E-commerce & D2C App",
+    desc: "Native-feeling storefront with cart, checkout, order tracking and push notifications.",
+    stack: ["React Native", "Stripe", "Firebase"],
+    stats: ["4.8★ store rating", "Sub-2s cold start", "iOS + Android"],
+  },
+  {
+    icon: MapPin,
+    title: "Logistics & Dispatch App",
+    desc: "Driver app with live GPS, route optimisation, proof-of-delivery and offline sync.",
+    stack: ["React Native", "Mapbox", "PostgreSQL"],
+    stats: ["Real-time tracking", "Offline first", "Role-based flows"],
+  },
+  {
+    icon: CreditCard,
+    title: "FinTech / Loans App",
+    desc: "KYC, loan application journey, EMI calculator and secure document upload.",
+    stack: ["React Native", "Node.js", "AWS S3"],
+    stats: ["Aadhaar / PAN KYC", "Bank-grade auth", "Encrypted storage"],
+  },
+  {
+    icon: Bell,
+    title: "Fitness & Wellness App",
+    desc: "Workout library, AI coach, progress tracking and reminders — inspired by our Fit N Freakk build.",
+    stack: ["React Native", "OpenAI", "Supabase"],
+    stats: ["AI-generated plans", "Video demos", "Streaks & badges"],
+  },
+];
+
+const qaServices = [
+  {
+    icon: Bug,
+    title: "Manual & Exploratory QA",
+    desc: "Structured test cases, exploratory sessions, cross-device compatibility and detailed bug reports with reproducible steps.",
+    tools: ["TestRail", "Jira", "BrowserStack", "Notion"],
+  },
+  {
+    icon: TestTube2,
+    title: "Automated Testing",
+    desc: "End-to-end, integration and unit test suites wired into your CI so regressions are caught before release.",
+    tools: ["Playwright", "Cypress", "Vitest", "Jest", "GitHub Actions"],
+  },
+  {
+    icon: Gauge,
+    title: "Performance & Load",
+    desc: "Web Vitals audits, API stress testing and database profiling to keep pages fast under real traffic.",
+    tools: ["Lighthouse", "k6", "New Relic", "Sentry"],
+  },
+  {
+    icon: Lock,
+    title: "Security Testing",
+    desc: "OWASP Top-10 review, dependency scanning, auth & role checks and secrets hygiene before launch.",
+    tools: ["OWASP ZAP", "Snyk", "npm audit", "Semgrep"],
+  },
+  {
+    icon: Accessibility,
+    title: "Accessibility (WCAG)",
+    desc: "WCAG 2.2 AA audits, keyboard-navigation and screen-reader passes with prioritised fixes.",
+    tools: ["axe DevTools", "NVDA", "VoiceOver"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Release & Regression",
+    desc: "Pre-release smoke suites, staged rollouts and post-release monitoring so shipping stays boring.",
+    tools: ["GitHub Actions", "Sentry", "PostHog"],
+  },
+];
+
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
