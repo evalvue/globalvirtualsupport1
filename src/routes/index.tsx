@@ -307,7 +307,7 @@ function Portfolio() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <a href="#contact">Start a project <ArrowRight className="ml-2 w-4 h-4" /></a>
+                <Link to="/contact">Start a project <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="#work">View live work</a>
