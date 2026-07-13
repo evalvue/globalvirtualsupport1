@@ -427,7 +427,119 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* Software Products */}
+      <section id="products" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Software Products</p>
+          <h2 className="text-4xl font-semibold tracking-tight">Business platforms we design and ship.</h2>
+          <p className="mt-4 text-muted-foreground">
+            Production-grade software built for real operations — invoicing, inventory, sales, and internal tooling.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {softwareProducts.map((p) => (
+            <Card key={p.title} className="p-6 border-border/60 flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <p.icon className="w-5 h-5" />
+              </div>
+              <h3 className="mt-4 text-xl font-semibold">{p.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+              <ul className="mt-4 space-y-1.5">
+                {p.features.map((f) => (
+                  <li key={f} className="text-sm flex items-center gap-2 text-foreground/80">
+                    <CheckCircle2 className="w-4 h-4 text-primary" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 pt-4 border-t border-border/60 text-xs text-muted-foreground italic">
+                {p.example}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Mobile Apps */}
+      <section id="apps" className="bg-secondary/40 py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mb-14">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Mobile Apps</p>
+            <h2 className="text-4xl font-semibold tracking-tight">iOS & Android apps that ship to the store.</h2>
+            <p className="mt-4 text-muted-foreground">
+              Cross-platform builds with React Native and native modules where it matters — payments, maps, camera and background sync.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {mobileApps.map((a) => (
+              <Card key={a.title} className="overflow-hidden border-border/60 flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative aspect-[9/16] bg-gradient-to-br from-primary/15 via-background to-accent/20 p-4">
+                  <div className="absolute inset-x-6 inset-y-4 rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center" style={{ boxShadow: "var(--shadow-card)" }}>
+                    <div className="w-16 h-1.5 rounded-full bg-muted-foreground/30 mb-4" />
+                    <a.icon className="w-8 h-8 text-primary" />
+                    <div className="mt-3 text-sm font-semibold">{a.title.split(" ")[0]}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">v2.4</div>
+                    <div className="mt-4 w-full space-y-1.5">
+                      {a.stats.map((s) => (
+                        <div key={s} className="text-[11px] rounded-md bg-secondary/60 px-2 py-1">{s}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-semibold">{a.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground flex-1">{a.desc}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {a.stack.map((s) => (
+                      <Badge key={s} variant="outline" className="font-normal text-[10px]">{s}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* QA & Testing */}
+      <section id="qa" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">QA & Testing</p>
+          <h2 className="text-4xl font-semibold tracking-tight">Ship with confidence, not with luck.</h2>
+          <p className="mt-4 text-muted-foreground">
+            A dedicated QA practice covering manual, automated, performance, security and accessibility testing — plugged into your release pipeline.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {qaServices.map((q) => (
+            <Card key={q.title} className="p-6 border-border/60" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <q.icon className="w-5 h-5" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold">{q.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{q.desc}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {q.tools.map((t) => (
+                  <Badge key={t} variant="secondary" className="font-normal text-xs">{t}</Badge>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-10 grid sm:grid-cols-4 gap-4 text-center">
+          {[
+            { k: "10k+", v: "Test cases executed" },
+            { k: "500+", v: "Automated E2E tests" },
+            { k: "99.9%", v: "Release success rate" },
+            { k: "< 24h", v: "Bug-fix turnaround" },
+          ].map((s) => (
+            <Card key={s.v} className="p-5 border-border/60" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="text-2xl font-semibold text-primary">{s.k}</div>
+              <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       <section id="process" className="max-w-6xl mx-auto px-6 py-24">
         <div className="max-w-2xl mb-14">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Process</p>
