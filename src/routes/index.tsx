@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
           "Global Virtual Support builds high-performance websites, mobile apps and custom software for founders and teams worldwide. Top-rated on Fiverr & Upwork.",
       },
       { property: "og:title", content: "Global Virtual Support — Web, App & Software Development" },
-      { property: "og:description", content: "Websites, apps and custom software crafted for growing businesses worldwide." },
+      { property: "og:description", content: "Global Virtual Support builds high-performance websites, mobile apps and custom software for founders and teams worldwide. Top-rated on Fiverr & Upwork." },
       { property: "og:image", content: gvs.url },
       { name: "twitter:image", content: gvs.url },
     ],
