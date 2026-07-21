@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import Globe3DSection from "@/components/Globe3DSection";
 import heroImg from "@/assets/hero-global.jpg";
 import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
@@ -379,7 +380,7 @@ function ProjectBriefForm() {
   const upd = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm({ ...form, [k]: e.target.value });
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const msg =
 `*New Project Enquiry — Global Virtual Support*
@@ -395,6 +396,30 @@ function ProjectBriefForm() {
 
 *Project Details:*
 ${form.details}`;
+
+    // Send email to owner via formsubmit.co (no backend, no signup key required).
+    // First submission triggers a one-time confirmation email to jeet0731@gmail.com.
+    try {
+      const fd = new FormData();
+      fd.append("_subject", `New enquiry from ${form.name} — ${form.service}`);
+      fd.append("_captcha", "false");
+      fd.append("_template", "table");
+      fd.append("Name", form.name);
+      fd.append("Email", form.email);
+      fd.append("Phone", form.phone);
+      fd.append("Company", form.company || "—");
+      fd.append("Service", form.service);
+      fd.append("Budget", form.budget);
+      fd.append("Timeline", form.timeline);
+      fd.append("Details", form.details);
+      await fetch("https://formsubmit.co/ajax/jeet0731@gmail.com", {
+        method: "POST",
+        body: fd,
+      });
+    } catch {
+      /* non-blocking — WhatsApp still opens */
+    }
+
     const url = `https://wa.me/917000738158?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
     setSent(true);
@@ -469,12 +494,12 @@ ${form.details}`;
         </Button>
         {sent && (
           <span className="text-sm text-primary flex items-center gap-1">
-            <CheckCircle2 className="w-4 h-4" /> Opened WhatsApp — hit send there.
+            <CheckCircle2 className="w-4 h-4" /> Sent by email + WhatsApp opened.
           </span>
         )}
       </div>
       <p className="text-xs text-muted-foreground">
-        Your enquiry goes straight to <span className="font-medium">+91 70007 38158</span> on WhatsApp. Reply usually within a few hours.
+        Your enquiry is emailed to us instantly and also opens on WhatsApp <span className="font-medium">+91 70007 38158</span>. Reply usually within a few hours.
       </p>
     </form>
   );
@@ -614,6 +639,10 @@ function Portfolio() {
           ))}
         </div>
       </section>
+
+      {/* Interactive 3D Earth showing project locations */}
+      <Globe3DSection />
+
 
       {/* Services */}
       <section id="services" className="max-w-6xl mx-auto px-6 py-24">
