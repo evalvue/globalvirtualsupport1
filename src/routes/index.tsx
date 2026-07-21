@@ -616,6 +616,10 @@ function Portfolio() {
         </div>
       </section>
 
+      {/* Interactive 3D Earth showing project locations */}
+      <Globe3DSection />
+
+
       {/* Services */}
       <section id="services" className="max-w-6xl mx-auto px-6 py-24">
         <div className="max-w-2xl mb-14" data-reveal>
