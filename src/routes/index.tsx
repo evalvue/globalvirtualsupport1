@@ -494,7 +494,7 @@ ${form.details}`;
         </Button>
         {sent && (
           <span className="text-sm text-primary flex items-center gap-1">
-            <CheckCircle2 className="w-4 h-4" /> Opened WhatsApp — hit send there.
+            <CheckCircle2 className="w-4 h-4" /> Sent by email + WhatsApp opened.
           </span>
         )}
       </div>
