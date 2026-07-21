@@ -499,7 +499,7 @@ ${form.details}`;
         )}
       </div>
       <p className="text-xs text-muted-foreground">
-        Your enquiry goes straight to <span className="font-medium">+91 70007 38158</span> on WhatsApp. Reply usually within a few hours.
+        Your enquiry is emailed to us instantly and also opens on WhatsApp <span className="font-medium">+91 70007 38158</span>. Reply usually within a few hours.
       </p>
     </form>
   );
