@@ -380,7 +380,7 @@ function ProjectBriefForm() {
   const upd = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm({ ...form, [k]: e.target.value });
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const msg =
 `*New Project Enquiry — Global Virtual Support*
@@ -396,6 +396,30 @@ function ProjectBriefForm() {
 
 *Project Details:*
 ${form.details}`;
+
+    // Send email to owner via formsubmit.co (no backend, no signup key required).
+    // First submission triggers a one-time confirmation email to jeet0731@gmail.com.
+    try {
+      const fd = new FormData();
+      fd.append("_subject", `New enquiry from ${form.name} — ${form.service}`);
+      fd.append("_captcha", "false");
+      fd.append("_template", "table");
+      fd.append("Name", form.name);
+      fd.append("Email", form.email);
+      fd.append("Phone", form.phone);
+      fd.append("Company", form.company || "—");
+      fd.append("Service", form.service);
+      fd.append("Budget", form.budget);
+      fd.append("Timeline", form.timeline);
+      fd.append("Details", form.details);
+      await fetch("https://formsubmit.co/ajax/jeet0731@gmail.com", {
+        method: "POST",
+        body: fd,
+      });
+    } catch {
+      /* non-blocking — WhatsApp still opens */
+    }
+
     const url = `https://wa.me/917000738158?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
     setSent(true);
