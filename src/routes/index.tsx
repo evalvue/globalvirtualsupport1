@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import Globe3DSection from "@/components/Globe3DSection";
+import { trackLeadConversion } from "@/lib/gtag";
 import heroImg from "@/assets/hero-global.jpg";
 import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
@@ -419,6 +420,9 @@ ${form.details}`;
     } catch {
       /* non-blocking — WhatsApp still opens */
     }
+
+    // Google Ads conversion — counts this enquiry as a lead.
+    trackLeadConversion({ service: form.service, budget: form.budget, source: "landing_brief_form" });
 
     const url = `https://wa.me/917000738158?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");

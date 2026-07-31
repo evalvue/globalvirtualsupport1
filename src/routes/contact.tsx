@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { trackLeadConversion } from "@/lib/gtag";
 import {
   ArrowLeft,
   Mail,
@@ -85,6 +86,7 @@ function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
+    trackLeadConversion({ service: form.service, budget: form.budget, source: "contact_page_form" });
     window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
     setSent(true);
   };
