@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { VisitTracker } from "@/components/VisitTracker";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
