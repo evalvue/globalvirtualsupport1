@@ -83,9 +83,26 @@ function ContactPage() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
+    try {
+      await recordLead({
+        data: {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          service: form.service,
+          budget: form.budget,
+          timeline: form.timeline,
+          message: form.message,
+          source: "contact_page_form",
+        },
+      });
+    } catch {
+      /* non-blocking */
+    }
     trackLeadConversion({ service: form.service, budget: form.budget, source: "contact_page_form" });
     window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
     setSent(true);
