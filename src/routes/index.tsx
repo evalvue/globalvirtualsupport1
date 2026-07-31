@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import Globe3DSection from "@/components/Globe3DSection";
 import { trackLeadConversion } from "@/lib/gtag";
+import { recordLead } from "@/lib/tracking.functions";
 import heroImg from "@/assets/hero-global.jpg";
 import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
@@ -397,6 +398,25 @@ function ProjectBriefForm() {
 
 *Project Details:*
 ${form.details}`;
+
+    // Save the lead in the admin database (with IP-based location).
+    try {
+      await recordLead({
+        data: {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          service: form.service,
+          budget: form.budget,
+          timeline: form.timeline,
+          message: form.details,
+          source: "landing_brief_form",
+        },
+      });
+    } catch {
+      /* non-blocking */
+    }
 
     // Send email to owner via formsubmit.co (no backend, no signup key required).
     // First submission triggers a one-time confirmation email to jeet0731@gmail.com.

@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { VisitTracker } from "@/components/VisitTracker";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -129,6 +130,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <VisitTracker />
       <Outlet />
     </QueryClientProvider>
   );
