@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import Globe3DSection from "@/components/Globe3DSection";
+import { trackLeadConversion } from "@/lib/gtag";
 import heroImg from "@/assets/hero-global.jpg";
 import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
