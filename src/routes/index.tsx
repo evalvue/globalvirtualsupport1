@@ -398,6 +398,25 @@ function ProjectBriefForm() {
 *Project Details:*
 ${form.details}`;
 
+    // Save the lead in the admin database (with IP-based location).
+    try {
+      await recordLead({
+        data: {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          service: form.service,
+          budget: form.budget,
+          timeline: form.timeline,
+          message: form.details,
+          source: "landing_brief_form",
+        },
+      });
+    } catch {
+      /* non-blocking */
+    }
+
     // Send email to owner via formsubmit.co (no backend, no signup key required).
     // First submission triggers a one-time confirmation email to jeet0731@gmail.com.
     try {
