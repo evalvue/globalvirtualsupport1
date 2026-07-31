@@ -85,6 +85,7 @@ function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
+    trackLeadConversion({ service: form.service, budget: form.budget, source: "contact_page_form" });
     window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
     setSent(true);
   };
