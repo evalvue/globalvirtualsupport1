@@ -420,6 +420,9 @@ ${form.details}`;
       /* non-blocking — WhatsApp still opens */
     }
 
+    // Google Ads conversion — counts this enquiry as a lead.
+    trackLeadConversion({ service: form.service, budget: form.budget, source: "landing_brief_form" });
+
     const url = `https://wa.me/917000738158?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
     setSent(true);
