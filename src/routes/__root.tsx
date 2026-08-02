@@ -95,12 +95,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         async: true,
-        src: "https://www.googletagmanager.com/gtag/js?id=AW-18337907190",
+        src: "https://www.googletagmanager.com/gtag/js?id=GT-KTR8QBMC",
       },
       {
         children: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
+gtag('config', 'GT-KTR8QBMC');
 gtag('config', 'AW-18337907190');`,
       },
     ],
