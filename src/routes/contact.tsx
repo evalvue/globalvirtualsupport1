@@ -104,6 +104,30 @@ function ContactPage() {
     } catch {
       /* non-blocking */
     }
+
+    // Email notification to owner (formsubmit.co — no backend needed).
+    try {
+      const fd = new FormData();
+      fd.append("_subject", `New enquiry from ${form.name} — ${form.service}`);
+      fd.append("_captcha", "false");
+      fd.append("_template", "table");
+      fd.append("Name", form.name);
+      fd.append("Email", form.email);
+      fd.append("Phone", form.phone || "—");
+      fd.append("Company", form.company || "—");
+      fd.append("Service", form.service);
+      fd.append("Budget", form.budget);
+      fd.append("Timeline", form.timeline || "—");
+      fd.append("Details", form.message);
+      fd.append("Source", "contact_page_form");
+      await fetch("https://formsubmit.co/ajax/jeet0731@gmail.com", {
+        method: "POST",
+        body: fd,
+      });
+    } catch {
+      /* non-blocking */
+    }
+
     trackLeadConversion({ service: form.service, budget: form.budget, source: "contact_page_form" });
     window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
     setSent(true);
