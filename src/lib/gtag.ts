@@ -7,7 +7,7 @@
 export const GOOGLE_ADS_ID = "AW-18337907190";
 /** Google tag (gtag.js) ID that loads the tag on every page. */
 export const GOOGLE_TAG_ID = "GT-KTR8QBMC";
-export const CONVERSION_LABEL = "REPLACE_WITH_LABEL";
+export const CONVERSION_LABEL = "qwIsCLmPx9kcEPaDmahE";
 
 export const isConversionConfigured = () =>
   Boolean(CONVERSION_LABEL) && !CONVERSION_LABEL.startsWith("REPLACE_");
