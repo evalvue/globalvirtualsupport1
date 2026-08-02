@@ -69,7 +69,7 @@ export function trackLeadConversion(meta: LeadMeta = {}) {
 
   // Custom event name Google Ads / GA4 can use as a conversion action.
   send("event", "submit_lead_form", {
-    send_to: GOOGLE_ADS_ID,
+    send_to: [GOOGLE_TAG_ID, GOOGLE_ADS_ID],
     event_category: "enquiry",
     event_label: meta.source ?? "enquiry_form",
     service: meta.service,
