@@ -104,6 +104,30 @@ function ContactPage() {
     } catch {
       /* non-blocking */
     }
+
+    // Email notification to owner (formsubmit.co — no backend needed).
+    try {
+      const fd = new FormData();
+      fd.append("_subject", `New enquiry from ${form.name} — ${form.service}`);
+      fd.append("_captcha", "false");
+      fd.append("_template", "table");
+      fd.append("Name", form.name);
+      fd.append("Email", form.email);
+      fd.append("Phone", form.phone || "—");
+      fd.append("Company", form.company || "—");
+      fd.append("Service", form.service);
+      fd.append("Budget", form.budget);
+      fd.append("Timeline", form.timeline || "—");
+      fd.append("Details", form.message);
+      fd.append("Source", "contact_page_form");
+      await fetch("https://formsubmit.co/ajax/jeet0731@gmail.com", {
+        method: "POST",
+        body: fd,
+      });
+    } catch {
+      /* non-blocking */
+    }
+
     trackLeadConversion({ service: form.service, budget: form.budget, source: "contact_page_form" });
     window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
     setSent(true);
@@ -147,10 +171,11 @@ function ContactPage() {
           {sent ? (
             <div className="text-center py-10">
               <CheckCircle2 className="w-12 h-12 text-primary mx-auto" />
-              <h2 className="mt-4 text-2xl font-semibold">WhatsApp opened</h2>
+              <h2 className="mt-4 text-2xl font-semibold">Thank you, {form.name || "friend"}! 🎉</h2>
               <p className="mt-2 text-muted-foreground max-w-md mx-auto">
-                We've prefilled your enquiry in WhatsApp. Just press <strong>Send</strong> in the chat
-                window to reach us on <strong>+91 70007 38158</strong>.
+                Your enquiry has been received and our team has been notified by email. We'll get back
+                to you within a few hours. WhatsApp bhi khul gaya hai — just press <strong>Send</strong>{" "}
+                to chat with us instantly on <strong>+91 70007 38158</strong>.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 <Button asChild>
