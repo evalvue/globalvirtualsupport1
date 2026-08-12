@@ -302,17 +302,10 @@ function Hero3DScene() {
       >
         <div className="relative preserve-3d animate-float-3d">
           <div
-            className="relative rounded-2xl overflow-hidden glass"
-            style={{ boxShadow: "var(--shadow-soft)", transform: "translateZ(60px)" }}
+            className="relative rounded-full overflow-hidden"
+            style={{ transform: "translateZ(60px)" }}
           >
-            <img
-              src={heroImg}
-              alt="Global network"
-              width={720}
-              height={540}
-              className="w-[300px] md:w-[420px] h-auto object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-accent/30" />
+            <HeroGlobeMount />
           </div>
 
           {/* code snippet card */}
