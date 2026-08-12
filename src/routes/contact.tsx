@@ -308,6 +308,10 @@ function ContactPage() {
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} Global Virtual Support. All rights reserved.
+        <span className="mx-2 opacity-40">·</span>
+        <Link to="/privacy" className="underline hover:text-foreground">
+          Privacy Policy
+        </Link>
       </footer>
     </div>
   );
