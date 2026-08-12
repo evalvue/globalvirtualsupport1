@@ -263,6 +263,14 @@ function ContactPage() {
                   hello@globalvirtualsupport.com
                 </a>
               </p>
+              <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
+                <Shield className="w-3 h-3 text-primary" /> Your details are stored securely and never
+                shared or sold. See our{" "}
+                <Link to="/privacy" className="underline hover:text-foreground">
+                  Privacy Policy
+                </Link>
+                .
+              </p>
             </form>
           )}
         </Card>
@@ -300,6 +308,10 @@ function ContactPage() {
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} Global Virtual Support. All rights reserved.
+        <span className="mx-2 opacity-40">·</span>
+        <Link to="/privacy" className="underline hover:text-foreground">
+          Privacy Policy
+        </Link>
       </footer>
     </div>
   );
