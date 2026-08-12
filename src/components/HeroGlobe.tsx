@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Globe from "react-globe.gl";
+import earthTex from "@/assets/earth-blue-marble.jpg.asset.json";
+import topoTex from "@/assets/earth-topology.png.asset.json";
 import { PROJECT_MARKERS } from "./Globe3D";
 
 const HQ = PROJECT_MARKERS[0];
@@ -49,8 +51,8 @@ export default function HeroGlobe() {
         width={size}
         height={size}
         backgroundColor="rgba(0,0,0,0)"
-        globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
+        globeImageUrl={earthTex.url}
+        bumpImageUrl={topoTex.url}
         showAtmosphere
         atmosphereColor="#60a5fa"
         atmosphereAltitude={0.25}

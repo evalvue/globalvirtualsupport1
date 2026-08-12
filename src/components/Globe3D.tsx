@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Globe from "react-globe.gl";
+import earthTex from "@/assets/earth-blue-marble.jpg.asset.json";
+import topoTex from "@/assets/earth-topology.png.asset.json";
 
 export type ProjectMarker = {
   name: string;
@@ -88,8 +90,8 @@ export default function Globe3D() {
           width={size.w}
           height={size.h}
           backgroundColor="rgba(0,0,0,0)"
-          globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-          bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
+          globeImageUrl={earthTex.url}
+          bumpImageUrl={topoTex.url}
           showAtmosphere
           atmosphereColor="#60a5fa"
           atmosphereAltitude={0.22}
