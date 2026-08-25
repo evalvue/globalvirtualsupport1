@@ -354,32 +354,32 @@ function Hero3DScene() {
 
           {/* code snippet card */}
           <div
-            className="absolute -bottom-8 -left-10 md:-left-16 glass rounded-xl p-3 text-[11px] font-mono w-48 md:w-56 hidden sm:block"
+            className="absolute -bottom-10 -left-8 md:-left-16 glass rounded-2xl p-3 text-[11px] font-mono w-48 md:w-56 hidden sm:block animate-float-reverse"
             style={{ transform: "translateZ(120px)", boxShadow: "var(--shadow-card)" }}
           >
             <div className="flex gap-1 mb-2">
-              <span className="w-2 h-2 rounded-full bg-red-400" />
-              <span className="w-2 h-2 rounded-full bg-yellow-400" />
-              <span className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="w-2 h-2 rounded-full bg-destructive/70" />
+              <span className="w-2 h-2 rounded-full bg-accent/80" />
+              <span className="w-2 h-2 rounded-full bg-primary/80" />
             </div>
             <div className="text-primary">const gvs = {"{"}</div>
-            <div className="pl-3 text-foreground/80">ship: <span className="text-accent-foreground">"fast"</span>,</div>
-            <div className="pl-3 text-foreground/80">quality: <span className="text-accent-foreground">"pro"</span></div>
+            <div className="pl-3 text-foreground/80">ship: <span className="text-accent">"fast"</span>,</div>
+            <div className="pl-3 text-foreground/80">quality: <span className="text-accent">"premium"</span></div>
             <div className="text-primary">{"}"};</div>
           </div>
 
           {/* stat card */}
           <div
-            className="absolute -top-6 -right-6 md:-right-14 glass rounded-xl p-3 w-40 hidden sm:block"
+            className="absolute -top-8 -right-4 md:-right-14 glass rounded-2xl p-3 w-40 hidden sm:block animate-float-slow"
             style={{ transform: "translateZ(140px)", boxShadow: "var(--shadow-card)" }}
           >
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-primary" />
+              <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
+                <Zap className="w-4 h-4 text-accent" />
               </div>
               <div>
-                <div className="text-xs text-muted-foreground">Uptime</div>
-                <div className="text-sm font-semibold">99.98%</div>
+                <div className="text-xs text-muted-foreground">Response</div>
+                <div className="text-sm font-semibold">&lt; 1 hour</div>
               </div>
             </div>
           </div>
@@ -387,10 +387,10 @@ function Hero3DScene() {
       </div>
 
       {/* floating tech chips */}
-      {floatChips.map((c) => (
+      {floatChips.map((c, i) => (
         <div
           key={c.label}
-          className={`absolute ${c.cls} glass rounded-full pl-2 pr-3 py-1.5 flex items-center gap-2 text-xs font-medium`}
+          className={`absolute ${c.cls} glass rounded-full pl-2 pr-3 py-1.5 items-center gap-2 text-[11px] md:text-xs font-medium ${i > 2 ? "hidden md:flex" : "flex"}`}
           style={{ transform: `translateZ(${c.z}px)`, boxShadow: "var(--shadow-card)" }}
         >
           <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center">
@@ -399,6 +399,7 @@ function Hero3DScene() {
           {c.label}
         </div>
       ))}
+
     </div>
   );
 }
