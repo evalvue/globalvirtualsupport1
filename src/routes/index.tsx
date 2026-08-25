@@ -595,31 +595,33 @@ function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
-        <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/60">
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between gap-3">
           <a
             href="https://www.globalvirtualsupport.com"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 font-semibold tracking-tight text-lg"
+            className="flex items-center gap-2 font-semibold tracking-tight text-base sm:text-lg shrink-0"
           >
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg">
               <Globe className="w-4 h-4" />
+              <span className="absolute inset-0 rounded-xl bg-primary/40 animate-ping-slow" />
             </span>
-            Global Virtual <span className="text-muted-foreground font-normal">Support</span>
+            <span className="hidden xs:inline">Global Virtual</span>
+            <span className="sm:hidden">GVS</span>
+            <span className="text-muted-foreground font-normal hidden sm:inline">Support</span>
           </a>
-          <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#services" className="hover:text-foreground transition">Services</a>
-            <a href="#work" className="hover:text-foreground transition">Work</a>
-            <a href="#products" className="hover:text-foreground transition">Products</a>
-            <a href="#apps" className="hover:text-foreground transition">Apps</a>
-            <a href="#qa" className="hover:text-foreground transition">Testing</a>
-            <a href="#brief" className="hover:text-foreground transition">Start Project</a>
+          <div className="hidden lg:flex items-center gap-7 text-sm text-muted-foreground">
+            <a href="#services" className="hover:text-primary transition">Services</a>
+            <a href="#work" className="hover:text-primary transition">Work</a>
+            <a href="#products" className="hover:text-primary transition">Products</a>
+            <a href="#apps" className="hover:text-primary transition">Apps</a>
+            <a href="#qa" className="hover:text-primary transition">Testing</a>
             <a
               href="https://www.globalvirtualsupport.com"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-foreground transition inline-flex items-center gap-1"
+              className="hover:text-primary transition inline-flex items-center gap-1"
             >
               Main Site <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
@@ -630,65 +632,86 @@ function Portfolio() {
                 <MessageCircle className="w-3.5 h-3.5 mr-1" /> WhatsApp
               </a>
             </Button>
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="shine">
               <a href="#brief">Start Project</a>
             </Button>
           </div>
         </nav>
+        {/* mobile quick links */}
+        <div className="lg:hidden border-t border-border/50 overflow-x-auto">
+          <div className="flex items-center gap-5 px-4 py-2 text-xs text-muted-foreground whitespace-nowrap">
+            <a href="#services" className="hover:text-primary transition">Services</a>
+            <a href="#globe" className="hover:text-primary transition">Global Reach</a>
+            <a href="#work" className="hover:text-primary transition">Work</a>
+            <a href="#products" className="hover:text-primary transition">Products</a>
+            <a href="#apps" className="hover:text-primary transition">Apps</a>
+            <a href="#qa" className="hover:text-primary transition">Testing</a>
+            <a href="#contact" className="hover:text-primary transition">Contact</a>
+          </div>
+        </div>
       </header>
 
       {/* Hero — 3D */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 mesh-bg opacity-70" />
-        <div className="absolute inset-0 grid-bg opacity-60" />
-        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-24 md:pt-28 md:pb-32 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <Badge variant="secondary" className="mb-6 glass">
-              <Star className="w-3 h-3 mr-1 fill-current" /> Top-rated on Fiverr & Upwork · Worldwide
+        <div className="absolute inset-0 mesh-bg opacity-90 animate-aurora" />
+        <div className="absolute inset-0 grid-bg opacity-70" />
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-6 pt-14 pb-16 sm:pt-20 sm:pb-24 md:pt-28 md:pb-32 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+          <div className="animate-fade-left">
+            <Badge variant="secondary" className="mb-5 glass text-[11px] sm:text-xs">
+              <Star className="w-3 h-3 mr-1 fill-current text-accent" /> Top-rated on Fiverr & Upwork · Worldwide
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.02]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
               We craft{" "}
-              <span
-                className="bg-clip-text text-transparent gradient-animated"
-                style={{ backgroundImage: "linear-gradient(90deg, oklch(0.42 0.14 150), oklch(0.58 0.16 200), oklch(0.65 0.18 130), oklch(0.42 0.14 150))" }}
-              >
-                websites, apps
-              </span>
+              <span className="text-gradient">websites, apps</span>
               <span className="block">& software that scale.</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-md">
+            <p className="mt-5 text-base sm:text-lg text-muted-foreground max-w-md">
               Global Virtual Support is a full-stack development studio delivering production-grade
               digital products for founders and teams worldwide.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button size="lg" asChild className="shadow-lg">
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <Button size="lg" asChild className="shine shadow-lg w-full sm:w-auto">
                 <a href="#brief">Start a project <ArrowRight className="ml-2 w-4 h-4" /></a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
                 <a href="#work">View live work</a>
               </Button>
             </div>
-            <div className="mt-10 grid grid-cols-4 gap-6 max-w-md text-sm text-muted-foreground">
-              <div><div className="font-semibold text-foreground text-xl">100+</div>Projects</div>
-              <div><div className="font-semibold text-foreground text-xl">50+</div>Clients</div>
-              <div><div className="font-semibold text-foreground text-xl">8 yrs</div>Experience</div>
-              <div><div className="font-semibold text-foreground text-xl">5.0★</div>Rating</div>
+            <div className="mt-9 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-md text-sm text-muted-foreground">
+              {[
+                { v: "100+", k: "Projects" },
+                { v: "50+", k: "Clients" },
+                { v: "8 yrs", k: "Experience" },
+                { v: "5.0★", k: "Rating" },
+              ].map((s, i) => (
+                <div
+                  key={s.k}
+                  className="rounded-xl glass px-3 py-2 animate-fade-up"
+                  style={{ animationDelay: `${200 + i * 100}ms` }}
+                >
+                  <div className="font-semibold text-foreground text-lg sm:text-xl">{s.v}</div>
+                  {s.k}
+                </div>
+              ))}
             </div>
           </div>
 
-          <Hero3DScene />
+          <div className="animate-fade-right">
+            <Hero3DScene />
+          </div>
         </div>
 
         {/* Trust bar */}
-        <div className="border-t border-border/60 bg-background/40 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="flex items-center gap-2"><Shield className="w-4 h-4" /> NDA on request</span>
-            <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> On-time delivery</span>
-            <span className="flex items-center gap-2"><Globe className="w-4 h-4" /> Worldwide clients</span>
-            <span className="flex items-center gap-2"><Headphones className="w-4 h-4" /> 24 / 7 support</span>
+        <div className="border-t border-border/60 bg-background/50 backdrop-blur-sm">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 py-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground">
+            <span className="flex items-center gap-2"><Shield className="w-4 h-4 text-primary" /> NDA on request</span>
+            <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> On-time delivery</span>
+            <span className="flex items-center gap-2"><Globe className="w-4 h-4 text-primary" /> Worldwide clients</span>
+            <span className="flex items-center gap-2"><Headphones className="w-4 h-4 text-primary" /> 24 / 7 support</span>
           </div>
         </div>
       </section>
+
 
       {/* Marquee tech strip */}
       <section className="py-8 border-b border-border/60 bg-secondary/30 overflow-hidden">
