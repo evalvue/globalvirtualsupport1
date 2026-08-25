@@ -285,14 +285,14 @@ function Hero3DScene() {
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={reset}
-      className="relative perspective-1000 h-[460px] md:h-[560px]"
+      className="relative perspective-1000 h-[380px] sm:h-[460px] md:h-[560px]"
     >
-      {/* glow */}
-      <div className="absolute inset-8 rounded-[2rem] mesh-bg blur-3xl opacity-80 animate-glow-pulse" />
-      {/* orbit ring */}
+      {/* aurora glow */}
+      <div className="absolute inset-6 rounded-[2.5rem] mesh-bg blur-3xl opacity-90 animate-aurora" />
+      {/* orbit rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-full border border-primary/20 animate-spin-slow" />
-        <div className="absolute w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full border border-accent/40" />
+        <div className="w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[430px] md:h-[430px] rounded-full border border-primary/25 animate-spin-slow" />
+        <div className="absolute w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[330px] md:h-[330px] rounded-full border border-dashed border-accent/30 animate-spin-reverse" />
       </div>
 
       {/* 3D card */}
@@ -301,12 +301,56 @@ function Hero3DScene() {
         style={{ transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)` }}
       >
         <div className="relative preserve-3d animate-float-3d">
+          {/* premium dashboard preview */}
           <div
-            className="relative rounded-full overflow-hidden"
-            style={{ transform: "translateZ(60px)" }}
+            className="relative w-[240px] sm:w-[300px] md:w-[360px] rounded-3xl glass shine overflow-hidden"
+            style={{ transform: "translateZ(60px)", boxShadow: "var(--shadow-glow)" }}
           >
-            <HeroGlobeMount />
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-border/60">
+              <span className="w-2 h-2 rounded-full bg-primary/70" />
+              <span className="w-2 h-2 rounded-full bg-accent/70" />
+              <span className="w-2 h-2 rounded-full bg-muted-foreground/40" />
+              <span className="ml-auto text-[10px] uppercase tracking-widest text-muted-foreground">
+                live build
+              </span>
+            </div>
+            <div className="p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                    Delivery velocity
+                  </div>
+                  <div className="text-2xl font-semibold text-gradient">4.2× faster</div>
+                </div>
+                <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-primary">
+                  <Rocket className="w-4 h-4" />
+                  <span className="absolute inset-0 rounded-full bg-primary/25 animate-ping-slow" />
+                </span>
+              </div>
+              <div className="grid grid-cols-6 items-end gap-1.5 h-20">
+                {[38, 55, 44, 72, 61, 92].map((h, i) => (
+                  <div
+                    key={i}
+                    className="rounded-t-md bg-gradient-to-t from-primary/25 to-primary animate-fade-up"
+                    style={{ height: `${h}%`, animationDelay: `${i * 110}ms` }}
+                  />
+                ))}
+              </div>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                {[
+                  { k: "Uptime", v: "99.98%" },
+                  { k: "Rating", v: "5.0★" },
+                  { k: "Projects", v: "100+" },
+                ].map((s) => (
+                  <div key={s.k} className="rounded-xl bg-secondary/60 py-2">
+                    <div className="text-sm font-semibold">{s.v}</div>
+                    <div className="text-[10px] text-muted-foreground">{s.k}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+
 
           {/* code snippet card */}
           <div
