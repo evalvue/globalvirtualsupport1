@@ -899,6 +899,7 @@ function Portfolio() {
                 <div className="mt-5 pt-4 border-t border-border/60 text-xs text-muted-foreground italic">
                   {p.example}
                 </div>
+                </div>
               </Card>
             </div>
           ))}
