@@ -11,6 +11,18 @@ import fitnfreakk from "@/assets/projects/fitnfreakk.png.asset.json";
 import aarthvaahini from "@/assets/projects/aarthvaahini.png.asset.json";
 import managexone from "@/assets/projects/managexone.png.asset.json";
 import gvs from "@/assets/projects/gvs.png.asset.json";
+import erpImg from "@/assets/cards/erp.jpg";
+import crmImg from "@/assets/cards/crm.jpg";
+import toolsImg from "@/assets/cards/tools.jpg";
+import appEcomImg from "@/assets/cards/app-ecom.jpg";
+import appLogisticsImg from "@/assets/cards/app-logistics.jpg";
+import appFintechImg from "@/assets/cards/app-fintech.jpg";
+import appFitnessImg from "@/assets/cards/app-fitness.jpg";
+import qaImg from "@/assets/cards/qa.jpg";
+import indRetailImg from "@/assets/cards/ind-retail.jpg";
+import indHealthImg from "@/assets/cards/ind-health.jpg";
+import indRealEstateImg from "@/assets/cards/ind-realestate.jpg";
+import indEducationImg from "@/assets/cards/ind-education.jpg";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -168,6 +180,7 @@ const softwareProducts = [
     desc: "Multi-company accounting, GST/VAT billing, P&L, balance sheet and inventory dashboards.",
     features: ["GST / VAT ready", "Multi-currency", "Role-based access", "Audit logs"],
     example: "Reference build: ManageXOne — HRIS + Accounting + CRM",
+    img: erpImg,
   },
   {
     icon: Database,
@@ -175,6 +188,7 @@ const softwareProducts = [
     desc: "Lead pipelines, quote-to-cash, automated follow-ups and WhatsApp / email integrations.",
     features: ["Pipeline stages", "Quote & invoice", "Email + WhatsApp", "Analytics"],
     example: "Delivered for BPO, logistics and real-estate clients",
+    img: crmImg,
   },
   {
     icon: Cpu,
@@ -182,6 +196,38 @@ const softwareProducts = [
     desc: "Admin panels, back-office dashboards, and REST/GraphQL APIs that replace spreadsheets.",
     features: ["Custom dashboards", "Cron jobs", "3rd-party APIs", "SSO & 2FA"],
     example: "Ops teams cut manual work by up to 70%",
+    img: toolsImg,
+  },
+];
+
+const industries = [
+  {
+    icon: ShoppingBag,
+    title: "Retail & D2C",
+    desc: "Storefronts, catalogue sync, payments and order operations that scale on sale days.",
+    img: indRetailImg,
+    points: ["Shopify & headless", "Payment gateways", "Inventory sync"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Healthcare",
+    desc: "Appointment booking, patient records and clinic dashboards with privacy-first design.",
+    img: indHealthImg,
+    points: ["Consent & audit logs", "Doctor scheduling", "Reports & billing"],
+  },
+  {
+    icon: MapPin,
+    title: "Real Estate",
+    desc: "Property listings, site-visit CRM and builder dashboards with lead routing.",
+    img: indRealEstateImg,
+    points: ["Listing portals", "Lead routing", "Site-visit tracking"],
+  },
+  {
+    icon: Layers,
+    title: "Education",
+    desc: "Course platforms, live class scheduling, assessments and student progress tracking.",
+    img: indEducationImg,
+    points: ["LMS portals", "Assessments", "Parent dashboards"],
   },
 ];
 
@@ -192,6 +238,7 @@ const mobileApps = [
     desc: "Native-feeling storefront with cart, checkout, order tracking and push notifications.",
     stack: ["React Native", "Stripe", "Firebase"],
     stats: ["4.8★ store rating", "Sub-2s cold start", "iOS + Android"],
+    img: appEcomImg,
   },
   {
     icon: MapPin,
@@ -199,6 +246,7 @@ const mobileApps = [
     desc: "Driver app with live GPS, route optimisation, proof-of-delivery and offline sync.",
     stack: ["React Native", "Mapbox", "PostgreSQL"],
     stats: ["Real-time tracking", "Offline first", "Role-based flows"],
+    img: appLogisticsImg,
   },
   {
     icon: CreditCard,
@@ -206,6 +254,7 @@ const mobileApps = [
     desc: "KYC, loan application journey, EMI calculator and secure document upload.",
     stack: ["React Native", "Node.js", "AWS S3"],
     stats: ["Aadhaar / PAN KYC", "Bank-grade auth", "Encrypted storage"],
+    img: appFintechImg,
   },
   {
     icon: Bell,
@@ -213,6 +262,7 @@ const mobileApps = [
     desc: "Workout library, AI coach, progress tracking and reminders — inspired by our Fit N Freakk build.",
     stack: ["React Native", "OpenAI", "Supabase"],
     stats: ["AI-generated plans", "Video demos", "Streaks & badges"],
+    img: appFitnessImg,
   },
 ];
 
@@ -828,11 +878,16 @@ function Portfolio() {
         <div className="grid md:grid-cols-3 gap-6">
           {softwareProducts.map((p, i) => (
             <div key={p.title} data-reveal style={{ animationDelay: `${i * 80}ms` }}>
-              <Card className="p-6 border-border/60 flex flex-col card-3d h-full" style={{ boxShadow: "var(--shadow-card)" }}>
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <p.icon className="w-5 h-5" />
+              <Card className="overflow-hidden border-border/60 flex flex-col card-3d h-full" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                  <img src={p.img} alt={p.title} loading="lazy" width={1024} height={768} className="w-full h-full object-cover opacity-90 hover:scale-[1.04] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                  <div className="absolute bottom-3 left-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary backdrop-blur">
+                    <p.icon className="w-5 h-5" />
+                  </div>
                 </div>
-                <h3 className="mt-4 text-xl font-semibold">{p.title}</h3>
+                <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-semibold">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
                 <ul className="mt-4 space-y-1.5">
                   {p.features.map((f) => (
@@ -843,6 +898,7 @@ function Portfolio() {
                 </ul>
                 <div className="mt-5 pt-4 border-t border-border/60 text-xs text-muted-foreground italic">
                   {p.example}
+                </div>
                 </div>
               </Card>
             </div>
@@ -864,17 +920,16 @@ function Portfolio() {
             {mobileApps.map((a, i) => (
               <div key={a.title} data-reveal style={{ animationDelay: `${i * 80}ms` }}>
                 <Card className="overflow-hidden border-border/60 flex flex-col card-3d h-full" style={{ boxShadow: "var(--shadow-card)" }}>
-                  <div className="relative aspect-[9/16] bg-gradient-to-br from-primary/15 via-background to-accent/20 p-4">
-                    <div className="absolute inset-x-6 inset-y-4 rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center" style={{ boxShadow: "var(--shadow-card)" }}>
-                      <div className="w-16 h-1.5 rounded-full bg-muted-foreground/30 mb-4" />
-                      <a.icon className="w-8 h-8 text-primary" />
-                      <div className="mt-3 text-sm font-semibold">{a.title.split(" ")[0]}</div>
-                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">v2.4</div>
-                      <div className="mt-4 w-full space-y-1.5">
-                        {a.stats.map((s) => (
-                          <div key={s} className="text-[11px] rounded-md bg-secondary/60 px-2 py-1">{s}</div>
-                        ))}
-                      </div>
+                  <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+                    <img src={a.img} alt={`${a.title} mockup`} loading="lazy" width={900} height={1200} className="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20 text-primary backdrop-blur">
+                      <a.icon className="w-4 h-4" />
+                    </div>
+                    <div className="absolute bottom-3 inset-x-3 space-y-1">
+                      {a.stats.map((s) => (
+                        <div key={s} className="text-[11px] rounded-md bg-background/70 backdrop-blur px-2 py-1">{s}</div>
+                      ))}
                     </div>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
@@ -893,14 +948,56 @@ function Portfolio() {
         </div>
       </section>
 
+      {/* Industries */}
+      <section id="industries" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl mb-14" data-reveal>
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Industries</p>
+          <h2 className="text-4xl font-semibold tracking-tight">Domain knowledge that saves you months.</h2>
+          <p className="mt-4 text-muted-foreground">
+            We've shipped products across these verticals — so the edge cases are already solved before we start.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {industries.map((ind, i) => (
+            <div key={ind.title} data-reveal style={{ animationDelay: `${i * 70}ms` }}>
+              <Card className="overflow-hidden border-border/60 card-3d h-full flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <img src={ind.img} alt={`${ind.title} projects`} loading="lazy" width={1024} height={768} className="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+                  <div className="absolute top-3 left-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20 text-primary backdrop-blur">
+                    <ind.icon className="w-4 h-4" />
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-semibold">{ind.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground flex-1">{ind.desc}</p>
+                  <ul className="mt-3 space-y-1">
+                    {ind.points.map((pt) => (
+                      <li key={pt} className="text-xs flex items-center gap-2 text-foreground/80">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* QA & Testing */}
       <section id="qa" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="max-w-2xl mb-14" data-reveal>
-          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">QA & Testing</p>
-          <h2 className="text-4xl font-semibold tracking-tight">Ship with confidence, not with luck.</h2>
-          <p className="mt-4 text-muted-foreground">
-            A dedicated QA practice covering manual, automated, performance, security and accessibility testing — plugged into your release pipeline.
-          </p>
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center mb-14">
+          <div data-reveal>
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">QA & Testing</p>
+            <h2 className="text-4xl font-semibold tracking-tight">Ship with confidence, not with luck.</h2>
+            <p className="mt-4 text-muted-foreground">
+              A dedicated QA practice covering manual, automated, performance, security and accessibility testing — plugged into your release pipeline.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-border/60 animate-tilt" style={{ boxShadow: "var(--shadow-card)" }} data-reveal>
+            <img src={qaImg} alt="Automated test suite results dashboard" loading="lazy" width={1024} height={768} className="w-full h-full object-cover" />
+          </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {qaServices.map((q, i) => (
