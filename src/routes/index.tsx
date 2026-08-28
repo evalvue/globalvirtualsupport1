@@ -948,14 +948,56 @@ function Portfolio() {
         </div>
       </section>
 
+      {/* Industries */}
+      <section id="industries" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl mb-14" data-reveal>
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Industries</p>
+          <h2 className="text-4xl font-semibold tracking-tight">Domain knowledge that saves you months.</h2>
+          <p className="mt-4 text-muted-foreground">
+            We've shipped products across these verticals — so the edge cases are already solved before we start.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {industries.map((ind, i) => (
+            <div key={ind.title} data-reveal style={{ animationDelay: `${i * 70}ms` }}>
+              <Card className="overflow-hidden border-border/60 card-3d h-full flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <img src={ind.img} alt={`${ind.title} projects`} loading="lazy" width={1024} height={768} className="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+                  <div className="absolute top-3 left-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20 text-primary backdrop-blur">
+                    <ind.icon className="w-4 h-4" />
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-semibold">{ind.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground flex-1">{ind.desc}</p>
+                  <ul className="mt-3 space-y-1">
+                    {ind.points.map((pt) => (
+                      <li key={pt} className="text-xs flex items-center gap-2 text-foreground/80">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-primary" /> {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* QA & Testing */}
       <section id="qa" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="max-w-2xl mb-14" data-reveal>
-          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">QA & Testing</p>
-          <h2 className="text-4xl font-semibold tracking-tight">Ship with confidence, not with luck.</h2>
-          <p className="mt-4 text-muted-foreground">
-            A dedicated QA practice covering manual, automated, performance, security and accessibility testing — plugged into your release pipeline.
-          </p>
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center mb-14">
+          <div data-reveal>
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">QA & Testing</p>
+            <h2 className="text-4xl font-semibold tracking-tight">Ship with confidence, not with luck.</h2>
+            <p className="mt-4 text-muted-foreground">
+              A dedicated QA practice covering manual, automated, performance, security and accessibility testing — plugged into your release pipeline.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-border/60 animate-tilt" style={{ boxShadow: "var(--shadow-card)" }} data-reveal>
+            <img src={qaImg} alt="Automated test suite results dashboard" loading="lazy" width={1024} height={768} className="w-full h-full object-cover" />
+          </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {qaServices.map((q, i) => (
