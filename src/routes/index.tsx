@@ -920,17 +920,16 @@ function Portfolio() {
             {mobileApps.map((a, i) => (
               <div key={a.title} data-reveal style={{ animationDelay: `${i * 80}ms` }}>
                 <Card className="overflow-hidden border-border/60 flex flex-col card-3d h-full" style={{ boxShadow: "var(--shadow-card)" }}>
-                  <div className="relative aspect-[9/16] bg-gradient-to-br from-primary/15 via-background to-accent/20 p-4">
-                    <div className="absolute inset-x-6 inset-y-4 rounded-[2rem] border border-border/70 bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center" style={{ boxShadow: "var(--shadow-card)" }}>
-                      <div className="w-16 h-1.5 rounded-full bg-muted-foreground/30 mb-4" />
-                      <a.icon className="w-8 h-8 text-primary" />
-                      <div className="mt-3 text-sm font-semibold">{a.title.split(" ")[0]}</div>
-                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">v2.4</div>
-                      <div className="mt-4 w-full space-y-1.5">
-                        {a.stats.map((s) => (
-                          <div key={s} className="text-[11px] rounded-md bg-secondary/60 px-2 py-1">{s}</div>
-                        ))}
-                      </div>
+                  <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+                    <img src={a.img} alt={`${a.title} mockup`} loading="lazy" width={900} height={1200} className="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20 text-primary backdrop-blur">
+                      <a.icon className="w-4 h-4" />
+                    </div>
+                    <div className="absolute bottom-3 inset-x-3 space-y-1">
+                      {a.stats.map((s) => (
+                        <div key={s} className="text-[11px] rounded-md bg-background/70 backdrop-blur px-2 py-1">{s}</div>
+                      ))}
                     </div>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
