@@ -180,6 +180,7 @@ const softwareProducts = [
     desc: "Multi-company accounting, GST/VAT billing, P&L, balance sheet and inventory dashboards.",
     features: ["GST / VAT ready", "Multi-currency", "Role-based access", "Audit logs"],
     example: "Reference build: ManageXOne — HRIS + Accounting + CRM",
+    img: erpImg,
   },
   {
     icon: Database,
@@ -187,6 +188,7 @@ const softwareProducts = [
     desc: "Lead pipelines, quote-to-cash, automated follow-ups and WhatsApp / email integrations.",
     features: ["Pipeline stages", "Quote & invoice", "Email + WhatsApp", "Analytics"],
     example: "Delivered for BPO, logistics and real-estate clients",
+    img: crmImg,
   },
   {
     icon: Cpu,
@@ -194,6 +196,38 @@ const softwareProducts = [
     desc: "Admin panels, back-office dashboards, and REST/GraphQL APIs that replace spreadsheets.",
     features: ["Custom dashboards", "Cron jobs", "3rd-party APIs", "SSO & 2FA"],
     example: "Ops teams cut manual work by up to 70%",
+    img: toolsImg,
+  },
+];
+
+const industries = [
+  {
+    icon: ShoppingBag,
+    title: "Retail & D2C",
+    desc: "Storefronts, catalogue sync, payments and order operations that scale on sale days.",
+    img: indRetailImg,
+    points: ["Shopify & headless", "Payment gateways", "Inventory sync"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Healthcare",
+    desc: "Appointment booking, patient records and clinic dashboards with privacy-first design.",
+    img: indHealthImg,
+    points: ["Consent & audit logs", "Doctor scheduling", "Reports & billing"],
+  },
+  {
+    icon: MapPin,
+    title: "Real Estate",
+    desc: "Property listings, site-visit CRM and builder dashboards with lead routing.",
+    img: indRealEstateImg,
+    points: ["Listing portals", "Lead routing", "Site-visit tracking"],
+  },
+  {
+    icon: Layers,
+    title: "Education",
+    desc: "Course platforms, live class scheduling, assessments and student progress tracking.",
+    img: indEducationImg,
+    points: ["LMS portals", "Assessments", "Parent dashboards"],
   },
 ];
 
@@ -204,6 +238,7 @@ const mobileApps = [
     desc: "Native-feeling storefront with cart, checkout, order tracking and push notifications.",
     stack: ["React Native", "Stripe", "Firebase"],
     stats: ["4.8★ store rating", "Sub-2s cold start", "iOS + Android"],
+    img: appEcomImg,
   },
   {
     icon: MapPin,
@@ -211,6 +246,7 @@ const mobileApps = [
     desc: "Driver app with live GPS, route optimisation, proof-of-delivery and offline sync.",
     stack: ["React Native", "Mapbox", "PostgreSQL"],
     stats: ["Real-time tracking", "Offline first", "Role-based flows"],
+    img: appLogisticsImg,
   },
   {
     icon: CreditCard,
@@ -218,6 +254,7 @@ const mobileApps = [
     desc: "KYC, loan application journey, EMI calculator and secure document upload.",
     stack: ["React Native", "Node.js", "AWS S3"],
     stats: ["Aadhaar / PAN KYC", "Bank-grade auth", "Encrypted storage"],
+    img: appFintechImg,
   },
   {
     icon: Bell,
@@ -225,6 +262,7 @@ const mobileApps = [
     desc: "Workout library, AI coach, progress tracking and reminders — inspired by our Fit N Freakk build.",
     stack: ["React Native", "OpenAI", "Supabase"],
     stats: ["AI-generated plans", "Video demos", "Streaks & badges"],
+    img: appFitnessImg,
   },
 ];
 
