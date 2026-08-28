@@ -878,11 +878,16 @@ function Portfolio() {
         <div className="grid md:grid-cols-3 gap-6">
           {softwareProducts.map((p, i) => (
             <div key={p.title} data-reveal style={{ animationDelay: `${i * 80}ms` }}>
-              <Card className="p-6 border-border/60 flex flex-col card-3d h-full" style={{ boxShadow: "var(--shadow-card)" }}>
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <p.icon className="w-5 h-5" />
+              <Card className="overflow-hidden border-border/60 flex flex-col card-3d h-full" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                  <img src={p.img} alt={p.title} loading="lazy" width={1024} height={768} className="w-full h-full object-cover opacity-90 hover:scale-[1.04] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                  <div className="absolute bottom-3 left-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary backdrop-blur">
+                    <p.icon className="w-5 h-5" />
+                  </div>
                 </div>
-                <h3 className="mt-4 text-xl font-semibold">{p.title}</h3>
+                <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-semibold">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
                 <ul className="mt-4 space-y-1.5">
                   {p.features.map((f) => (
