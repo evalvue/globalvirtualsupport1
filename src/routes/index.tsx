@@ -666,7 +666,9 @@ function Portfolio() {
             <a href="#work" className="hover:text-primary transition">Work</a>
             <a href="#products" className="hover:text-primary transition">Products</a>
             <a href="#apps" className="hover:text-primary transition">Apps</a>
+            <a href="#industries" className="hover:text-primary transition">Industries</a>
             <a href="#qa" className="hover:text-primary transition">Testing</a>
+
             <a
               href="https://www.globalvirtualsupport.com"
               target="_blank"
