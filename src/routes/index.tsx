@@ -7,10 +7,8 @@ import softwareImg from "@/assets/software.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
 import appDevImg from "@/assets/app-dev.jpg";
 import avatarImg from "@/assets/avatar.jpg";
-import fitnfreakk from "@/assets/projects/fitnfreakk.png.asset.json";
-import aarthvaahini from "@/assets/projects/aarthvaahini.png.asset.json";
-import managexone from "@/assets/projects/managexone.png.asset.json";
 import gvs from "@/assets/projects/gvs.png.asset.json";
+import { projects } from "@/lib/project-data";
 import erpImg from "@/assets/cards/erp.jpg";
 import crmImg from "@/assets/cards/crm.jpg";
 import toolsImg from "@/assets/cards/tools.jpg";
@@ -105,41 +103,6 @@ const services = [
     desc: "Business suites, dashboards, automation and integrations tailored to your workflow.",
     img: softwareImg,
     items: ["ERP / CRM", "HRIS & Accounting", "APIs & Automation", "Cloud Deployments"],
-  },
-];
-
-const projects = [
-  {
-    title: "Global Virtual Support",
-    tag: "BPO • Web Platform",
-    desc: "Full corporate site for a global BPO & web development agency — services, industries, and lead generation.",
-    img: gvs.url,
-    href: "https://globalvirtualsupport.com",
-    stack: ["Next.js", "TypeScript", "Tailwind"],
-  },
-  {
-    title: "ManageXOne",
-    tag: "SaaS • Business Suite",
-    desc: "All-in-one HRIS, Accounting, GST billing and CRM dashboard for growing companies.",
-    img: managexone.url,
-    href: "https://managexone.shop",
-    stack: ["React", "Node.js", "PostgreSQL"],
-  },
-  {
-    title: "Aarthvaahini",
-    tag: "FinTech • Website",
-    desc: "Loans, insurance and mutual funds platform with partner onboarding and product journeys.",
-    img: aarthvaahini.url,
-    href: "https://aarthvaahini.com",
-    stack: ["Next.js", "Tailwind", "CMS"],
-  },
-  {
-    title: "Fit N Freakk Gym",
-    tag: "Fitness • Web App",
-    desc: "Exercise library, AI coach and gym machine explorer — no login required.",
-    img: fitnfreakk.url,
-    href: "https://fitnfreakk.shop",
-    stack: ["React", "AI", "Tailwind"],
   },
 ];
 
@@ -827,11 +790,10 @@ function Portfolio() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((p, idx) => (
-              <a
+              <Link
                 key={p.title}
-                href={p.href}
-                target="_blank"
-                rel="noreferrer"
+                to="/projects/$slug"
+                params={{ slug: p.slug }}
                 className="group block"
                 data-reveal
                 style={{ animationDelay: `${idx * 80}ms` }}
@@ -864,7 +826,7 @@ function Portfolio() {
                     <div className="mt-4 text-xs text-muted-foreground truncate">{p.href.replace("https://", "")}</div>
                   </div>
                 </Card>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
