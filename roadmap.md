@@ -1,0 +1,4 @@
+- [x] Verify the Earth globe and project showcase on preview and published URLs.
+- [x] Identify the custom-domain DNS issue preventing the requested live domain from loading.
+- [x] Load the saved Google Analytics measurement ID once at the app root and track every page view.
+- [ ] Publish the frontend update when the owner requests it.

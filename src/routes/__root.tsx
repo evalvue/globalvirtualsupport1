@@ -1,14 +1,19 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect, useRef, useState } from "react";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
+  useServerFn,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 
 import { VisitTracker } from "@/components/VisitTracker";
+import { getGoogleAnalyticsMeasurementId } from "@/lib/analytics.functions";
+import { loadGoogleAnalytics, trackAnalyticsPageView } from "@/lib/analytics";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -132,7 +137,34 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <VisitTracker />
+      <AnalyticsTracker />
       <Outlet />
     </QueryClientProvider>
   );
+}
+
+function AnalyticsTracker() {
+  const path = useRouterState({ select: (state) => state.location.pathname });
+  const getMeasurementId = useServerFn(getGoogleAnalyticsMeasurementId);
+  const requested = useRef(false);
+  const [measurementId, setMeasurementId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (requested.current) return;
+    requested.current = true;
+
+    void getMeasurementId().then((id) => {
+      if (id) setMeasurementId(id);
+    });
+  }, [getMeasurementId]);
+
+  useEffect(() => {
+    if (!measurementId) return;
+
+    void loadGoogleAnalytics(measurementId).then(() => {
+      trackAnalyticsPageView(path);
+    });
+  }, [measurementId, path]);
+
+  return null;
 }
