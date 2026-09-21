@@ -19,10 +19,6 @@ export const Route = createFileRoute("/projects/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
-        ...(project ? [
-          { property: "og:image", content: project.img },
-          { name: "twitter:image", content: project.img },
-        ] : []),
       ],
     };
   },
