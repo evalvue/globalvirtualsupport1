@@ -73,7 +73,7 @@ const sections: { title: string; body: string[] }[] = [
     title: "7. Your rights",
     body: [
       "You can request a copy of the data we hold about you, ask for corrections, or request deletion at any time.",
-      "Email hello@globalvirtualsupport.com or WhatsApp +91 70007 38158 and we will action the request within 7 working days.",
+      "Email jeet0731@gmail.com or WhatsApp +91 70007 38158 and we will action the request within 7 working days.",
     ],
   },
   {
@@ -148,8 +148,8 @@ function PrivacyPage() {
           <h2 className="text-lg font-semibold">10. Contact us</h2>
           <p className="mt-3 text-sm text-muted-foreground">
             Global Virtual Support · Indore, India ·{" "}
-            <a className="underline hover:text-foreground" href="mailto:hello@globalvirtualsupport.com">
-              hello@globalvirtualsupport.com
+            <a className="underline hover:text-foreground" href="mailto:jeet0731@gmail.com">
+              jeet0731@gmail.com
             </a>{" "}
             ·{" "}
             <a className="underline hover:text-foreground" href="https://wa.me/917000738158" target="_blank" rel="noreferrer">

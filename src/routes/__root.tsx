@@ -88,8 +88,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@GlobalVirtualSupport" },
       { name: "twitter:title", content: "Global Virtual Support — Web, App & Software Development" },
       { name: "twitter:description", content: "Global Virtual Support builds high-performance websites, mobile apps and custom software for founders and teams worldwide. Top-rated on Fiverr & Upwork." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/29406b53-5a21-4fb3-8ddb-de8ebc5d221b/id-preview-727abc36--0956067d-e2e0-4571-8b2f-4943ac6446f5.lovable.app-1783947779634.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/29406b53-5a21-4fb3-8ddb-de8ebc5d221b/id-preview-727abc36--0956067d-e2e0-4571-8b2f-4943ac6446f5.lovable.app-1783947779634.png" },
     ],
     links: [
       {
