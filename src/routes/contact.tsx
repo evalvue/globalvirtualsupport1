@@ -32,6 +32,8 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact — Global Virtual Support" },
       { property: "og:description", content: "Start a project or ask a question. We usually reply within a few hours." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ContactPage,
@@ -259,8 +261,8 @@ function ContactPage() {
 
               <p className="text-xs text-muted-foreground text-center">
                 Prefer email? Write to{" "}
-                <a className="underline hover:text-foreground" href="mailto:hello@globalvirtualsupport.com">
-                  hello@globalvirtualsupport.com
+                <a className="underline hover:text-foreground" href="mailto:jeet0731@gmail.com">
+                  jeet0731@gmail.com
                 </a>
               </p>
               <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
@@ -286,8 +288,8 @@ function ContactPage() {
               <a href="tel:+917000738158" className="flex items-center gap-3 hover:text-primary transition">
                 <Phone className="w-4 h-4 text-primary" /> +91 70007 38158
               </a>
-              <a href="mailto:hello@globalvirtualsupport.com" className="flex items-center gap-3 hover:text-primary transition">
-                <Mail className="w-4 h-4 text-primary" /> hello@globalvirtualsupport.com
+              <a href="mailto:jeet0731@gmail.com" className="flex items-center gap-3 hover:text-primary transition">
+                <Mail className="w-4 h-4 text-primary" /> jeet0731@gmail.com
               </a>
               <a href="https://www.globalvirtualsupport.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-primary transition">
                 <Globe className="w-4 h-4 text-primary" /> globalvirtualsupport.com
