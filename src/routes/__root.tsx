@@ -6,10 +6,10 @@ import {
   createRootRouteWithContext,
   useRouter,
   useRouterState,
-  useServerFn,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 
 import { VisitTracker } from "@/components/VisitTracker";
 import { getGoogleAnalyticsMeasurementId } from "@/lib/analytics.functions";
